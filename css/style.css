@@ -1,0 +1,340 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+.hidden{
+  display: none;
+}
+.background{
+  background: url(assets/background.jpg) rgba(0,0,0,.3);
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+}
+.logo img{
+  width: 30%;
+  padding-left: 2%;
+}
+a{
+  color: rgba(110, 44, 0,1);
+  text-decoration: none;
+}
+/* hover effect **************/
+nav>ul>a:hover{
+  border-bottom: 3px solid rgba(255, 87, 51,1);
+  padding-bottom: 5px;
+  transition: 0.2s ease 0s, left 0.2s ease
+}
+/* hover effect ends *********/
+nav a{
+  font-weight: bold;
+  transition: .2s ease;
+}
+section h3{
+  color: rgba(110, 44, 0,1);
+  font-size: 2em;
+}
+section p{
+  font-size: 1.2em;
+}
+#srcBtn{
+  cursor: pointer;
+}
+#siteSearch{
+  transition: .2s ease;
+}
+/******************************************
+/* LAYOUT
+/*******************************************/
+
+/**********
+ parent layout
+ **********/
+
+body{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Playfair Display', serif;
+}
+
+/****** Header ******/
+
+header, header nav, header nav > ul{
+  display: flex;
+  flex-direction: row;
+}
+header, main, footer{
+  flex: 1;
+}
+.logo,#srcBtn{
+  flex: 1;
+}
+#srcBtn{
+  max-width: 25px;
+}
+#siteSearch{
+  max-width: 25%;
+}
+nav{
+  flex: 1;
+  text-align: center;
+  max-width: 100%;
+  align-items: center;
+}
+header{
+  background: rgba(255,255,255,.7) url(assets/background.jpg);
+  padding: 1% 0;
+  position: fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
+  box-shadow: 5px 5px 5px rgba(0,0,0,.5);
+  z-index: 3;
+}
+
+/***** Main *****/
+
+.welcome{
+  flex: 1;
+  color: rgba(244, 217, 214,1);
+  margin: 5% 0 0 5%;
+  padding-top: 3%;
+  max-width: 50%;
+  /* text-shadow: -1px 1px 0 #000; */
+}
+.welcome h1{
+  font-size: 3em;
+}
+.welcome p{
+  color: rgba(255,255,255,1);
+  font-size: 1.5em;
+}
+main{
+  display: flex;
+  flex-direction: row;
+  margin: 2% 0 2% 0;
+  padding-bottom: 13%;
+  min-height: 100%;
+}
+.special,.menu,.location{
+  flex: 1;
+  margin: 0 2%;
+  padding: 0 2%;
+  background: rgba(241, 209, 181,1);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.7);
+  transition: .2s;
+  cursor: pointer;
+}
+.special:hover,.menu:hover,.location:hover{
+  transform: translateY(-10px);
+}
+.special:hover .mainLink,.menu:hover .mainLink,.location:hover .mainLink{
+  color: rgba(255, 87, 51,1);
+}
+.special{
+  margin-left: 12%;
+}
+.location{
+  margin-right: 12%;
+}
+
+/*******
+story div
+********/
+
+.story{
+  height: 100%;
+  background: rgba(255,255,255,.1) url(assets/background2.jpg);
+  background-size: cover;
+  background-blend-mode: overlay;
+}
+.storyTemplate{
+  padding: 16% 20% 0 20%;
+  text-align: center;
+}
+.storyTemplate h2{
+  color: rgba(110, 44, 0,1);
+  font-size: 4em;
+}
+.storyTemplate p{
+  font-size: 1.5em;
+}
+
+/*******
+items layout
+********/
+
+nav > ul{
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+}
+nav ul > a{
+  padding: 0 2%;
+}
+.search{
+  padding: 0;
+  margin: 0;
+  max-width: 10%;
+}
+.search img{
+  max-width: 35%;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+/* *{border: 1px solid red !important;} */
+
+@media screen and (max-width: 1361px) {
+  .background{
+    background: url('assets/resized.jpg') rgba(0,0,0,.17);
+    background-size: cover;
+    background-attachment: initial;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+  }
+  .mobileHide{
+    display: none;
+  }
+  header{
+    background: rgba(255,255,255,1);
+    background-attachment: local;
+  }
+  #srcBtn{
+    max-width: 25px;
+  }
+  main{
+    min-height: 100%;
+    flex-direction: column;
+  }
+  .welcome{
+    flex: 1;
+    color: rgba(244, 217, 214,1);
+    margin: 5% 10% 0 10%;
+    padding: 5% 10% 0 10%;
+    max-width: 100%;
+    text-shadow: none;
+    justify-content: center;
+    text-align: center;
+  }
+  .welcome h1{
+    color: rgba(245, 67, 31,1);
+    font-size: 3em;
+  }
+  .welcome p{
+    color: rgba(110, 44, 0,1);;
+    font-size: 1.5em;
+    text-shadow: none;
+  }
+  .special,.menu,.location{
+    flex: 1;
+    margin: 5% 10% 5% 10%;
+    padding: 2% 5% 3% 5%;
+    background: rgba(241, 209, 181,1);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.7);
+  }
+  .story{
+    height: 100%;
+    background-size: cover;
+  }
+  .storyTemplate{
+    padding: 5% 10% 0 10%;
+  }
+}
+@media screen and (max-width: 790px) {
+  .background{
+    background: url('assets/resized.jpg') rgba(0,0,0,.17);
+    background-size: cover;
+    background-attachment: initial;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+  }
+  .mobileHide{
+    display: none;
+  }
+  .logo img{
+    width: 95%;
+  }
+  nav{
+    flex: 3;
+  }
+  header{
+    background: rgba(255,255,255,1);
+    background-size: cover;
+    background-attachment: local;
+  }
+  #srcBtn{
+    max-width: 25px;
+  }
+  main{
+    flex-direction: column;
+    background-position: center;
+  }
+  .welcome{
+    flex: 1;
+    color: rgba(244, 217, 214,1);
+    margin: 5% 10% 0 10%;
+    padding: 80px 10% 0 10%;
+    max-width: 100%;
+    text-shadow: none;
+    justify-content: center;
+    text-align: center;
+  }
+  .special,.menu,.location{
+    flex: 1;
+    margin: 8% 10%;
+    padding: 2% 5% 8% 5%;
+    background: rgba(241, 209, 181,1);
+    border: none;
+    border-radius: 25px;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.7);
+  }
+  .story{
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+  .storyTemplate{
+    padding: 5% 10% 0 10%;
+}
+@media screen and (max-width: 450px) {
+  .logo img{
+    width: 95%;
+  }
+  #srcBtn{
+    max-width: 20px;
+  }
+  nav{
+    flex: 3;
+  }
+  nav > ul {
+    font-size: .8rem;
+  }
+  .mobileHide,.smallScreen{
+    display: none;
+  }
+}
